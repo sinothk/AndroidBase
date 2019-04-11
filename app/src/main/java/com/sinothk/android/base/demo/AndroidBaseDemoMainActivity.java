@@ -3,8 +3,6 @@ package com.sinothk.android.base.demo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.sinothk.android.base.view.TitleBarView;
-
 public class AndroidBaseDemoMainActivity extends AppCompatActivity {
 
     @Override
@@ -12,6 +10,6 @@ public class AndroidBaseDemoMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_base_demo_main);
 
-        TitleBarView.getString();
+//        TitleBarView.getString();
     }
 }

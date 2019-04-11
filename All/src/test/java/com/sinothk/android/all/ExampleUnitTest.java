@@ -1,4 +1,4 @@
-package com.sinothk.android.support;
+package com.sinothk.android.all;
 
 import org.junit.Test;
 

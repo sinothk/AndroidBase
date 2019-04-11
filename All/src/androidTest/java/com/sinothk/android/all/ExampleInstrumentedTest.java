@@ -1,4 +1,4 @@
-package com.sinothk.android.support;
+package com.sinothk.android.all;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.sinothk.android.support.test", appContext.getPackageName());
+        assertEquals("com.sinothk.android.all.test", appContext.getPackageName());
     }
 }

@@ -26,7 +26,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sinothk.comm.BuildConfig.DEBUG;
+import static com.sinothk.android.utils.BuildConfig.DEBUG;
 
 /**
  * Company 汉合瑞信.

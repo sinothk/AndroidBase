@@ -1,9 +1,8 @@
 package com.sinothk.android.utils.temp;
 
 
-
-import com.sinothk.comm.utils.SDCardUtil;
-import com.sinothk.comm.utils.StringUtil;
+import com.sinothk.android.utils.SDCardUtil;
+import com.sinothk.android.utils.StringUtil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -21,7 +20,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
-import static com.sinothk.comm.utils.ConstantData.KB;
+import static com.sinothk.android.utils.ConstantData.KB;
 
 
 /**

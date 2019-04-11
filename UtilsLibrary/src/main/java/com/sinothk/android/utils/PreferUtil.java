@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.Map;
 
-import static com.sinothk.comm.BuildConfig.DEBUG;
+import static com.sinothk.android.utils.BuildConfig.DEBUG;
 
 /**
  * 首选项设置

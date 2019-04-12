@@ -1,12 +1,10 @@
 package com.sinothk.android.base.demo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.sinothk.android.all.titlebar.TitleBarBaseActivity;
 
-public class AndroidBaseDemoMainActivity extends TitleBarBaseActivity {
+public class AndroidBaseDemoMain2Activity extends TitleBarBaseActivity {
 
     @Override
     protected int getLayout() {
@@ -16,12 +14,9 @@ public class AndroidBaseDemoMainActivity extends TitleBarBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitleBar("It's All ！");
+        setTitleBar("Hello !");
 
 //        TitleBarView.getString();
     }
 
-    public void goto2(View view) {
-        startActivity(new Intent(AndroidBaseDemoMainActivity.this, AndroidBaseDemoMain2Activity.class));
-    }
 }

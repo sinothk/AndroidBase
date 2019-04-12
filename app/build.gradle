@@ -26,4 +26,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(':All')
+
+    implementation 'com.github.sinothk:FaceImageView:2.0.0416'
 }

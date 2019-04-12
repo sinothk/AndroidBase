@@ -27,5 +27,4 @@ dependencies {
 
     implementation project(':All')
 
-    implementation 'com.github.sinothk:FaceImageView:2.0.0416'
 }

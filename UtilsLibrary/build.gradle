@@ -32,7 +32,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // jar
-    api files('libs/commons-lang3-3.7.jar')
+    implementation files('libs/commons-lang3-3.7.jar')
     api files('libs/pinyin4j-2.5.1.jar')
 
     // 依赖

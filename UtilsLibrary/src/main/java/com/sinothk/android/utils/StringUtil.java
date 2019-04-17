@@ -660,6 +660,6 @@ public class StringUtil {
         Pattern p = Pattern.compile(pas);
         Matcher m = p.matcher(str);
 
-        return !m.matches();
+        return m.matches();
     }
 }

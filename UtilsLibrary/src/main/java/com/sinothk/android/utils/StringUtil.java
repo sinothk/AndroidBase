@@ -622,8 +622,8 @@ public class StringUtil {
      */
     public static boolean isPhone(String str) {
         Pattern p1 = null, p2 = null;
-        Matcher m  = null;
-        boolean b  = false;
+        Matcher m = null;
+        boolean b = false;
         p1 = Pattern.compile("^[0][1-9]{2,3}-[0-9]{5,10}$");  // 验证带区号的
         p2 = Pattern.compile("^[1-9]{1}[0-9]{5,8}$");         // 验证没有区号的
         if (str.length() > 9) {
@@ -646,5 +646,20 @@ public class StringUtil {
         Pattern pattern = Pattern.compile("^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$");
         Matcher isNum = pattern.matcher(userPhone);
         return isNum.matches();
+    }
+
+    /**
+     * 内容含有：数字，字母，汉字，标点
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isHanNumLetterPunctuationChar(String str) {
+        String pas = "^[\\\\u4E00-\\\\u9FA5A-Za-z0-9_，。？,.?!！、`~@<>《》｛｝{}()\\\\[\\\\]【】'‘’“”;；：:]+\\$";
+
+        Pattern p = Pattern.compile(pas);
+        Matcher m = p.matcher(str);
+
+        return !m.matches();
     }
 }

@@ -15,7 +15,7 @@ AndroidBase
   ## Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk.AndroidBase:All:1.0.0420'
+            implementation 'com.github.sinothk.AndroidBase:All:1.0.0425'
     }
 
 

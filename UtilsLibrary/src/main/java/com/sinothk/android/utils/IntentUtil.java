@@ -20,6 +20,7 @@ public class IntentUtil {
     }
 
     public static class IntentBuilder {
+
         private boolean isFinish;
         private Bundle mDataBundle;
         private int mEnterAnimRes;

@@ -7,6 +7,7 @@ import java.security.MessageDigest;
  * @author tfq
  * @datetime 2011-10-13
  */
+@Deprecated
 public class MD5Util {
 
 	/***

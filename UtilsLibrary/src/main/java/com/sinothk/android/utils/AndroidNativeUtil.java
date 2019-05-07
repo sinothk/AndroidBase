@@ -1,6 +1,8 @@
 package com.sinothk.android.utils;
 
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -16,6 +18,7 @@ import android.os.Bundle;
  *  更新:
  * <pre>
  */
+@Deprecated
 public class AndroidNativeUtil extends AppUtil {
 
 //    /**
@@ -76,11 +79,37 @@ public class AndroidNativeUtil extends AppUtil {
         }
     }
 
+    /**
+     * 通过调用浏览器下载文件！
+     *
+     * @param mContext
+     * @param url
+     */
     public static void downLoadByBrowser(Context mContext, String url) {
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         // 走自己的服务器
         intent.setData(Uri.parse(url));
         mContext.startActivity(intent);
+    }
+
+    /**
+     * 复制内容到剪切板
+     *
+     * @param copyStr
+     * @return
+     */
+    public static boolean copyIntoBox(Context mContext, String copyStr) {
+        try {
+            //获取剪贴板管理器
+            ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+            // 创建普通字符型ClipData
+            ClipData mClipData = ClipData.newPlainText("Label", copyStr);
+            // 将ClipData内容放到系统剪贴板里。
+            cm.setPrimaryClip(mClipData);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

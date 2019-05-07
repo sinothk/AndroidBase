@@ -14,6 +14,7 @@ import java.util.Date;
  *  更新:
  * <pre>
  */
+@Deprecated
 public class UnitUtil {
     //将px转换为dp
     public static int px2dp(Context context, int pxValue) {

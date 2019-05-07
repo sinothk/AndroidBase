@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+@Deprecated
 public class AViewUtil extends ViewUtil {
     /**
      * 输入框内容提示

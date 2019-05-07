@@ -63,7 +63,7 @@ public class ImageUtil {
             bitmap.compress(format, 100, baos);
             return baos.toByteArray();
         } finally {
-            SDCardUtil.closeIO(baos);
+            FileUtil.closeIO(baos);
         }
     }
 
@@ -703,7 +703,7 @@ public class ImageUtil {
         if (format == Bitmap.CompressFormat.PNG) return src;
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         src.compress(format, 100, os);
-        long upperSize = SDCardUtil.size2Byte(topLimit, unit);
+        long upperSize = FileUtil.size2Byte(topLimit, unit);
         while (os.toByteArray().length > upperSize) {
             os.reset();
             src.compress(format, 50, os);
@@ -753,7 +753,7 @@ public class ImageUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(Bitmap src, String filePath, Bitmap.CompressFormat format) {
-        return save(src, SDCardUtil.getFileByPath(filePath), format);
+        return save(src, FileUtil.getFileByPath(filePath), format);
     }
 
     /**
@@ -778,7 +778,7 @@ public class ImageUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(Bitmap src, String filePath, Bitmap.CompressFormat format, boolean recycle) {
-        return save(src, SDCardUtil.getFileByPath(filePath), format, recycle);
+        return save(src, FileUtil.getFileByPath(filePath), format, recycle);
     }
 
     /**
@@ -791,7 +791,7 @@ public class ImageUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(Bitmap src, File file, Bitmap.CompressFormat format, boolean recycle) {
-        if (isEmptyBitmap(src) || !SDCardUtil.createOrExistsFile(file)) return false;
+        if (isEmptyBitmap(src) || !FileUtil.createOrExistsFile(file)) return false;
         System.out.println(src.getWidth() + ", " + src.getHeight());
         OutputStream os = null;
         boolean res = false;
@@ -802,7 +802,7 @@ public class ImageUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            SDCardUtil.closeIO(os);
+            FileUtil.closeIO(os);
         }
         return res;
     }
@@ -835,7 +835,7 @@ public class ImageUtil {
      * @return 图片类型
      */
     public static String getImageType(String filePath) {
-        return getImageType(SDCardUtil.getFileByPath(filePath));
+        return getImageType(FileUtil.getFileByPath(filePath));
     }
 
     /**
@@ -854,7 +854,7 @@ public class ImageUtil {
             e.printStackTrace();
             return null;
         } finally {
-            SDCardUtil.closeIO(is);
+            FileUtil.closeIO(is);
         }
     }
 

@@ -21,6 +21,7 @@ import java.lang.reflect.Method;
  *  更新:
  * <pre>
  */
+@Deprecated
 public class StatusBarUtil {
 
     /**

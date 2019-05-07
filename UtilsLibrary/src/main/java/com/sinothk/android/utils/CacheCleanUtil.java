@@ -14,6 +14,7 @@ import java.io.File;
  *  @Update:
  * <pre>
  */
+@Deprecated
 public class CacheCleanUtil {
 
     /**

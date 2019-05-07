@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
  * Created by LYT on 2017/8/14.
  * 功能：
  */
+@Deprecated
 public final class RegexUtils {
 
     /**

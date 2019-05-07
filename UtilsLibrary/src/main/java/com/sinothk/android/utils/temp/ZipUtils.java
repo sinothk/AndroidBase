@@ -1,7 +1,7 @@
 package com.sinothk.android.utils.temp;
 
 
-import com.sinothk.android.utils.SDCardUtil;
+import com.sinothk.android.utils.FileUtil;
 import com.sinothk.android.utils.StringUtil;
 
 import java.io.BufferedInputStream;
@@ -61,7 +61,7 @@ public class ZipUtils {
      */
     public static boolean zipFiles(Collection<File> resFiles, String zipFilePath, String comment)
             throws IOException {
-        return zipFiles(resFiles, SDCardUtil.getFileByPath(zipFilePath), comment);
+        return zipFiles(resFiles, FileUtil.getFileByPath(zipFilePath), comment);
     }
 
     /**
@@ -99,7 +99,7 @@ public class ZipUtils {
         } finally {
             if (zos != null) {
                 zos.finish();
-                SDCardUtil.closeIO(zos);
+                FileUtil.closeIO(zos);
             }
         }
     }
@@ -128,7 +128,7 @@ public class ZipUtils {
      */
     public static boolean zipFile(String resFilePath, String zipFilePath, String comment)
             throws IOException {
-        return zipFile(SDCardUtil.getFileByPath(resFilePath), SDCardUtil.getFileByPath(zipFilePath), comment);
+        return zipFile(FileUtil.getFileByPath(resFilePath), FileUtil.getFileByPath(zipFilePath), comment);
     }
 
     /**
@@ -163,7 +163,7 @@ public class ZipUtils {
         } finally {
             if (zos != null) {
                 zos.finish();
-                SDCardUtil.closeIO(zos);
+                FileUtil.closeIO(zos);
             }
         }
     }
@@ -209,7 +209,7 @@ public class ZipUtils {
                 }
                 zos.closeEntry();
             } finally {
-                SDCardUtil.closeIO(is);
+                FileUtil.closeIO(is);
             }
         }
         return true;
@@ -225,7 +225,7 @@ public class ZipUtils {
      */
     public static boolean unzipFiles(Collection<File> zipFiles, String destDirPath)
             throws IOException {
-        return unzipFiles(zipFiles, SDCardUtil.getFileByPath(destDirPath));
+        return unzipFiles(zipFiles, FileUtil.getFileByPath(destDirPath));
     }
 
     /**
@@ -255,7 +255,7 @@ public class ZipUtils {
      */
     public static boolean unzipFile(String zipFilePath, String destDirPath)
             throws IOException {
-        return unzipFile(SDCardUtil.getFileByPath(zipFilePath), SDCardUtil.getFileByPath(destDirPath));
+        return unzipFile(FileUtil.getFileByPath(zipFilePath), FileUtil.getFileByPath(destDirPath));
     }
 
     /**
@@ -282,8 +282,8 @@ public class ZipUtils {
      */
     public static List<File> unzipFileByKeyword(String zipFilePath, String destDirPath, String keyword)
             throws IOException {
-        return unzipFileByKeyword(SDCardUtil.getFileByPath(zipFilePath),
-                SDCardUtil.getFileByPath(destDirPath), keyword);
+        return unzipFileByKeyword(FileUtil.getFileByPath(zipFilePath),
+                FileUtil.getFileByPath(destDirPath), keyword);
     }
 
     /**
@@ -304,14 +304,14 @@ public class ZipUtils {
         while (entries.hasMoreElements()) {
             ZipEntry entry = ((ZipEntry) entries.nextElement());
             String entryName = entry.getName();
-            if (StringUtil.isEmpty(keyword) || SDCardUtil.getFileName(entryName).toLowerCase().contains(keyword.toLowerCase())) {
+            if (StringUtil.isEmpty(keyword) || FileUtil.getFileName(entryName).toLowerCase().contains(keyword.toLowerCase())) {
                 String filePath = destDir + File.separator + entryName;
                 File file = new File(filePath);
                 files.add(file);
                 if (entry.isDirectory()) {
-                    if (!SDCardUtil.createOrExistsDir(file)) return null;
+                    if (!FileUtil.createOrExistsDir(file)) return null;
                 } else {
-                    if (!SDCardUtil.createOrExistsFile(file)) return null;
+                    if (!FileUtil.createOrExistsFile(file)) return null;
                     InputStream in = null;
                     OutputStream out = null;
                     try {
@@ -323,7 +323,7 @@ public class ZipUtils {
                             out.write(buffer, 0, len);
                         }
                     } finally {
-                        SDCardUtil.closeIO(in, out);
+                        FileUtil.closeIO(in, out);
                     }
                 }
             }
@@ -340,7 +340,7 @@ public class ZipUtils {
      */
     public static List<String> getFilePathInZip(String zipFilePath)
             throws IOException {
-        return getFilePathInZip(SDCardUtil.getFileByPath(zipFilePath));
+        return getFilePathInZip(FileUtil.getFileByPath(zipFilePath));
     }
 
     /**
@@ -370,7 +370,7 @@ public class ZipUtils {
      */
     public static List<String> getComments(String zipFilePath)
             throws IOException {
-        return getComments(SDCardUtil.getFileByPath(zipFilePath));
+        return getComments(FileUtil.getFileByPath(zipFilePath));
     }
 
 
@@ -402,7 +402,7 @@ public class ZipUtils {
      */
     public static Enumeration<?> getEntries(String zipFilePath)
             throws IOException {
-        return getEntries(SDCardUtil.getFileByPath(zipFilePath));
+        return getEntries(FileUtil.getFileByPath(zipFilePath));
     }
 
     /**

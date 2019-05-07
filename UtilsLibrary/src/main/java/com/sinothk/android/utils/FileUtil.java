@@ -34,7 +34,7 @@ import java.util.List;
  *     功能  :
  * </pre>
  */
-public class SDCardUtil {
+public class FileUtil {
 
     /**
      * bitmap保存为图片文件

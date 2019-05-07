@@ -10,6 +10,7 @@ import java.text.NumberFormat;
  * Created by LYT on 2017/8/14.
  * 功能：
  */
+@Deprecated
 public class NumberUtil {
     private NumberUtil() {
 

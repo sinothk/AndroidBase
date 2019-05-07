@@ -22,6 +22,7 @@ import java.io.UnsupportedEncodingException;
  *     desc  : 转换相关工具类
  * </pre>
  */
+@Deprecated
 public class ConvertUtil {
 
     static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -130,7 +131,7 @@ public class ConvertUtil {
             e.printStackTrace();
             return null;
         } finally {
-            SDCardUtil.closeIO(is);
+            FileUtil.closeIO(is);
         }
     }
 
@@ -192,7 +193,7 @@ public class ConvertUtil {
             e.printStackTrace();
             return null;
         } finally {
-            SDCardUtil.closeIO(os);
+            FileUtil.closeIO(os);
         }
     }
 
@@ -279,7 +280,7 @@ public class ConvertUtil {
             bitmap.compress(format, 100, baos);
             return baos.toByteArray();
         } finally {
-            SDCardUtil.closeIO(baos);
+            FileUtil.closeIO(baos);
         }
     }
 

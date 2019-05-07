@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.sinothk.android.all.titlebar.TitleBarBaseActivity;
+import com.sinothk.android.utils.XUtil;
 
 /**
  * https://github.com/bumptech/glide
@@ -25,6 +26,9 @@ public class AndroidBaseDemoMain2Activity extends TitleBarBaseActivity {
         setTitleBar("Hello !");
 
         iv001 = findViewById(R.id.iv001);
+
+        XUtil.init(this.getBaseContext());
+        XUtil.showToast("msg");
     }
 
     public void goto2(View view) {

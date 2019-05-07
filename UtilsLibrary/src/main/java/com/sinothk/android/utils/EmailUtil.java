@@ -1,6 +1,9 @@
 package com.sinothk.android.utils;
 
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.util.Date;
+import java.util.Properties;
 
 /**
  * <pre>

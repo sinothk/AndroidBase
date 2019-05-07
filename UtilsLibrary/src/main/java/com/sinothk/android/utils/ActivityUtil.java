@@ -12,6 +12,8 @@ import java.util.Stack;
  *  更新:
  * <pre>
  */
+
+@Deprecated
 public class ActivityUtil {
 
     private static Stack<Activity> activityList = new Stack<>();

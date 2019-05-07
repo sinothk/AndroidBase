@@ -15,7 +15,7 @@ import java.util.Map;
  *  @Update:
  * <pre>
  */
-
+@Deprecated
 public class CollectUtil<E> {
 
     public static boolean isNotEmpty(List<?> list) {

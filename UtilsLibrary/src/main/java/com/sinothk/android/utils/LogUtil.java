@@ -196,7 +196,7 @@ public class LogUtil {
      */
     private static boolean writeLog2File(String dir, String fileName, String content) {// 新建或打开日志文件
         //调用 writeLog2File("com/xxx/yy", "log_2017-07-13.txt", "日志一行的内容")
-        File file = new File(SDCardUtil.createFileDirectory(dir, true), fileName);
+        File file = new File(FileUtil.createFileDirectory(dir, true), fileName);
 
         try {
             FileWriter filerWriter = new FileWriter(file, true);// 后面这个参数代表是不是要接上文件中原来的数据，不进行覆盖
@@ -222,7 +222,7 @@ public class LogUtil {
     private static void deleteOverDateLogs(String dirStr, int days) {
         Date date2 = new Date();
 
-        File f = SDCardUtil.createFileDirectory(dirStr, true);// "appLogs/xx/yy"
+        File f = FileUtil.createFileDirectory(dirStr, true);// "appLogs/xx/yy"
         File[] files = null;
         if (f.exists()) {
             files = f.listFiles();

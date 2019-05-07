@@ -113,54 +113,6 @@ public class DateUtil {
         return calendar.getTime();
     }
 
-//    public static String getFriendlyDate(Date date) {
-//
-//        if (date == null) {
-//            date = new Date();
-//        }
-//
-//        Date now = new Date();
-//        long ys = DateUtils.truncate(now, Calendar.YEAR).getTime();
-//        long ds = DateUtils.truncate(now, Calendar.DAY_OF_MONTH).getTime();
-//        long yd = DateUtils.truncate(date, Calendar.DAY_OF_MONTH).getTime();
-//
-//        long nowTime = now.getTime();
-//        long dateTime = date.getTime();
-//
-//        if (dateTime < ys) {
-//            // 不是同一年
-//            return new SimpleDateFormat("MM月dd日").format(date);
-//        }
-//
-//        if ((ds - yd) == (48 * 60 * 60 * 1000)) {
-//            return new SimpleDateFormat("前天 HH:mm").format(date);
-//        }
-//
-//        if ((ds - yd) == (24 * 60 * 60 * 1000)) {
-//            return new SimpleDateFormat("昨天 HH:mm").format(date);
-//        }
-//
-//        if (dateTime < ds) {
-//            // 同一年，但不是昨天之前
-//            return new SimpleDateFormat("MM月dd日").format(date);
-//        }
-//
-//        if (nowTime - dateTime > 60 * 60 * 1000) {
-//            return new SimpleDateFormat("今天 HH:mm").format(date);
-//        }
-//
-//        if (nowTime - dateTime > 60 * 1000) {
-//            return (long) Math.floor((nowTime - dateTime) * 1d / 60000) + "分钟前";
-//        }
-//
-//        if (nowTime - dateTime >= 0) {
-//            return "刚刚";
-//        }
-//
-//        // 日期异常
-//        return new SimpleDateFormat("MM月dd日").format(date);
-//    }
-
     private static final long ONE_MINUTE = 60000L;
     private static final long ONE_HOUR = 3600000L;
     private static final long ONE_DAY = 86400000L;
@@ -436,5 +388,54 @@ public class DateUtil {
                 return new SimpleDateFormat("MM月dd日").format(date);
             }
         }
+    }
+
+    @Deprecated
+    public static String getFriendlyDate2(Date date) {
+
+        if (date == null) {
+            date = new Date();
+        }
+
+        Date now = new Date();
+        long ys = DateUtils.truncate(now, Calendar.YEAR).getTime();
+        long ds = DateUtils.truncate(now, Calendar.DAY_OF_MONTH).getTime();
+        long yd = DateUtils.truncate(date, Calendar.DAY_OF_MONTH).getTime();
+
+        long nowTime = now.getTime();
+        long dateTime = date.getTime();
+
+        if (dateTime < ys) {
+            // 不是同一年
+            return new SimpleDateFormat("MM月dd日").format(date);
+        }
+
+        if ((ds - yd) == (48 * 60 * 60 * 1000)) {
+            return new SimpleDateFormat("前天 HH:mm").format(date);
+        }
+
+        if ((ds - yd) == (24 * 60 * 60 * 1000)) {
+            return new SimpleDateFormat("昨天 HH:mm").format(date);
+        }
+
+        if (dateTime < ds) {
+            // 同一年，但不是昨天之前
+            return new SimpleDateFormat("MM月dd日").format(date);
+        }
+
+        if (nowTime - dateTime > 60 * 60 * 1000) {
+            return new SimpleDateFormat("今天 HH:mm").format(date);
+        }
+
+        if (nowTime - dateTime > 60 * 1000) {
+            return (long) Math.floor((nowTime - dateTime) * 1d / 60000) + "分钟前";
+        }
+
+        if (nowTime - dateTime >= 0) {
+            return "刚刚";
+        }
+
+        // 日期异常
+        return new SimpleDateFormat("MM月dd日").format(date);
     }
 }

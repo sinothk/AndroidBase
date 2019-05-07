@@ -41,7 +41,7 @@ import static com.sinothk.android.utils.BuildConfig.DEBUG;
  * Created by LYT on 2017/8/11.
  * 功能：
  */
-
+@Deprecated
 public class PhoneUtil {
 
     private static Context mContext;
@@ -378,7 +378,7 @@ public class PhoneUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            SDCardUtil.closeIO(lnr, isr);
+            FileUtil.closeIO(lnr, isr);
         }
         return macAddress == null ? "" : macAddress;
     }

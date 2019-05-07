@@ -1,4 +1,4 @@
-package com.sinothk.android.utils.temp;
+package com.sinothk.android.utils;
 
 
 import java.io.UnsupportedEncodingException;
@@ -110,15 +110,17 @@ public class SecretUtils {
      * @param args
      * @throws UnsupportedEncodingException
      */
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String key = "QAZWSXEDCTGFREDW@#$%";
-        String src = "01234567890123456789";
-        System.out.println("原始数据：" + src);
-        String encryptData = encryptMode(key, src);
-        System.out.println("加密数据：" + encryptData);
-        String decryptData = decryptMode(getKeyByte(key), hex2byte(encryptData.getBytes()));
-        System.out.println("解密数据：" + decryptData);
-    }
+//    public static void main(String[] args) throws UnsupportedEncodingException {
+//        String key = "QAZWSXEDCTGFREDW@#$%";
+//        String src = "01234567890123456789";
+//        System.out.println("原始数据：" + src);
+//
+//        String encryptData = encryptMode(key, src);
+//        System.out.println("加密数据：" + encryptData);
+//
+//        String decryptData = decryptMode(getKeyByte(key), hex2byte(encryptData.getBytes()));
+//        System.out.println("解密数据：" + decryptData);
+//    }
 
 }
 

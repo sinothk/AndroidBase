@@ -1,10 +1,13 @@
 package com.sinothk.android.base.demo;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.sinothk.android.all.titlebar.TitleBarBaseActivity;
+import com.sinothk.android.utils.WeakRefHander;
 import com.sinothk.android.utils.XUtil;
 
 /**
@@ -26,9 +29,6 @@ public class AndroidBaseDemoMain2Activity extends TitleBarBaseActivity {
         setTitleBar("Hello !");
 
         iv001 = findViewById(R.id.iv001);
-
-        XUtil.init(this.getBaseContext());
-        XUtil.showToast("msg");
     }
 
     public void goto2(View view) {

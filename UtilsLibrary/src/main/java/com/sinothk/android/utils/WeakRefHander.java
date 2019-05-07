@@ -1,4 +1,4 @@
-package com.sinothk.android.utils.temp;
+package com.sinothk.android.utils;
 
 import android.os.Handler;
 import android.os.Message;

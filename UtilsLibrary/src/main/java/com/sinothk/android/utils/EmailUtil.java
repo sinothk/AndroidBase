@@ -23,12 +23,10 @@ import javax.mail.internet.MimeMessage;
 public class EmailUtil {
 
     public static void main(String[] args) throws Exception {
-
         String fromName = "简爱";
         String toEMail = "sinothk@126.com";
         String eMailTitle = "密码找回 By Sinothk Center";
         String eMailTxt = "用户密码：" + 10000 + ", 密码：123456";
-
         sendSimpleEMail(fromName, toEMail, eMailTitle, eMailTxt);
     }
 

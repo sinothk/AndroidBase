@@ -36,7 +36,7 @@ public class ScrollChangeView extends ScrollView {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setOnScrollChange(final Context context, final View titleView, final View baseView, final int normalColor, int red, int green, int blue) {
+    public void setOnScrollChange(final Context context, final View titleView, final View baseView, final int normalColor, final int red, final int green, final int blue) {
 
         setOnScrollListener(new OnScrollListener() {
             @Override
@@ -44,11 +44,11 @@ public class ScrollChangeView extends ScrollView {
                 int i = XUtil.UnitUtil.dip2px(context, scrollY);
                 int dp = XUtil.UnitUtil.px2dp(context, i);
                 if (dp > 100) {
-                    titleView.setBackgroundResource(normalColor);
+                    titleView.setBackgroundColor(Color.argb(255, red, green, blue));
                 } else {
                     float scale = (float) scrollY / baseView.getHeight();
                     int alpha = (int) (255 * scale);
-                    titleView.setBackgroundColor(Color.argb(alpha, 62, 122, 220));
+                    titleView.setBackgroundColor(Color.argb(alpha, red, green, blue));
                 }
             }
         });

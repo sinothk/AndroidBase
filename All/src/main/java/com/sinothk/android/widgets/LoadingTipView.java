@@ -90,20 +90,35 @@ public class LoadingTipView extends RelativeLayout {
     }
 
     public void showEmpty() {
+        showEmpty("暂无数据");
     }
 
     public void showEmpty(String msg) {
+        view.setEnabled(true);
+
+        loadTipIv.setImageResource(R.drawable.comm_movie_liked);
+        loadTipTv.setText(msg);
     }
 
     public void showError(String msg) {
+        view.setEnabled(true);
 
+        loadTipIv.setImageResource(R.drawable.comm_movie_liked);
+        loadTipTv.setText(msg);
     }
-
-//    private OnClickListener clickListener;
 
     public void setRetryListener(OnClickListener onClickListener) {
         if (onClickListener != null) {
             view.setOnClickListener(onClickListener);
         }
+    }
+
+    public void showContent() {
+        this.setVisibility(GONE);
+    }
+
+    public void showContent(View contentView) {
+        showContent();
+        contentView.setVisibility(VISIBLE);
     }
 }

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sinothk.android.utils.ToastUtil;
@@ -12,11 +13,15 @@ import com.sinothk.android.widgets.LoadingTipView;
 public class LoadingTipViewDemoActivity extends AppCompatActivity {
 
     LoadingTipView loadingTipView;
+    TextView contentView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_tip_view);
+
+        contentView = this.findViewById(R.id.contentView);
 
         loadingTipView = this.findViewById(R.id.loadingTipView);
         loadingTipView.setRetryListener(new View.OnClickListener() {
@@ -34,14 +39,17 @@ public class LoadingTipViewDemoActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        loadingTipView.showNetError();
+//                        loadingTipView.showNetError();
+//                        loadingTipView.showNetError("");
+
+//                        loadingTipView.showEmpty("");
+
+//                        loadingTipView.showError("");
+
+                        loadingTipView.showContent(contentView);
                     }
                 });
             }
         }, 10 * 1000);
-
-//        loadingTipView.showNetError("");
-//        loadingTipView.showEmpty("");
-//        loadingTipView.showError("");
     }
 }

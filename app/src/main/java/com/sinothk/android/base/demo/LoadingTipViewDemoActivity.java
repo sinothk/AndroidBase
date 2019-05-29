@@ -15,7 +15,6 @@ public class LoadingTipViewDemoActivity extends AppCompatActivity {
     LoadingTipView loadingTipView;
     TextView contentView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

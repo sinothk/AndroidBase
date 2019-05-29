@@ -24,4 +24,8 @@ public class AndroidBaseDemoMainActivity extends TitleBarBaseActivity {
     public void goto2(View view) {
         startActivity(new Intent(AndroidBaseDemoMainActivity.this, AndroidBaseDemoMain2Activity.class));
     }
+
+    public void goto3(View view) {
+        startActivity(new Intent(AndroidBaseDemoMainActivity.this, LoadingTipViewDemoActivity.class));
+    }
 }

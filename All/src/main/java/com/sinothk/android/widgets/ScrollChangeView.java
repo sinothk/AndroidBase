@@ -12,7 +12,7 @@ import com.sinothk.android.utils.XUtil;
  * <pre>
  *  创建:  梁玉涛 2018/12/6 on 16:08
  *  项目:  android
- *  描述:  使用自定义view继承自ScrollView
+ *  描述:  滚动显示隐藏 TitleBar
  *  更新:
  * <pre>
  */

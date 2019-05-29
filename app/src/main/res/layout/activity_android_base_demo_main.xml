@@ -15,11 +15,16 @@
         android:layout_height="156dp"
         android:scaleType="fitXY" />
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="goto2"
         android:text="Hello World!" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goto3"
+        android:text="查看LoadingTipView" />
 
 </LinearLayout>

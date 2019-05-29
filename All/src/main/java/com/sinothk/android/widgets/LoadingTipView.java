@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -48,14 +49,15 @@ public class LoadingTipView extends RelativeLayout {
     private View view;
     private TextView loadTipTv;
     private ImageView loadTipIv;
-    private LinearLayout centerView;
+    private ProgressBar progressBar;
+
 
     private void initView(Context context) {
         view = LayoutInflater.from(context).inflate(R.layout.loading_tip_view, null);
 
-        centerView = view.findViewById(R.id.centerView);
         loadTipIv = view.findViewById(R.id.loadTipIv);
         loadTipTv = view.findViewById(R.id.loadTipTv);
+        progressBar = view.findViewById(R.id.progressBar);
 
         addView(view);
         setGravity(Gravity.CENTER);
@@ -70,8 +72,9 @@ public class LoadingTipView extends RelativeLayout {
 
     public void showLoading(String msg) {
         view.setEnabled(false);
+        progressBar.setVisibility(VISIBLE);
+        loadTipIv.setVisibility(GONE);
 
-        loadTipIv.setImageResource(R.drawable.comm_mark_new);
         loadTipTv.setText(msg);
     }
 
@@ -79,31 +82,41 @@ public class LoadingTipView extends RelativeLayout {
      * 当前网络不可用
      */
     public void showNetError() {
-        showNetError("当前网络不可用");
+        showNetError("当前网络不可用", R.drawable.empty_nodata);
     }
 
-    public void showNetError(String msg) {
+    public void showNetError(String msg, int iconResId) {
         view.setEnabled(true);
+        progressBar.setVisibility(GONE);
+        loadTipIv.setVisibility(VISIBLE);
 
-        loadTipIv.setImageResource(R.drawable.comm_movie_liked);
+        loadTipIv.setImageResource(iconResId);
         loadTipTv.setText(msg);
     }
 
     public void showEmpty() {
-        showEmpty("暂无数据");
+        showEmpty("暂无数据", R.drawable.empty_nodata);
     }
 
-    public void showEmpty(String msg) {
+    public void showEmpty(String msg, int iconResId) {
         view.setEnabled(true);
+        progressBar.setVisibility(GONE);
+        loadTipIv.setVisibility(VISIBLE);
 
-        loadTipIv.setImageResource(R.drawable.comm_movie_liked);
+        loadTipIv.setImageResource(iconResId);
         loadTipTv.setText(msg);
     }
 
     public void showError(String msg) {
-        view.setEnabled(true);
+        showError(msg, R.drawable.empty_nodata);
+    }
 
-        loadTipIv.setImageResource(R.drawable.comm_movie_liked);
+    public void showError(String msg, int iconResId) {
+        view.setEnabled(true);
+        progressBar.setVisibility(GONE);
+        loadTipIv.setVisibility(VISIBLE);
+
+        loadTipIv.setImageResource(iconResId);
         loadTipTv.setText(msg);
     }
 

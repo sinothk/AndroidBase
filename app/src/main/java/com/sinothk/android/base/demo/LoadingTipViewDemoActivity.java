@@ -39,17 +39,17 @@ public class LoadingTipViewDemoActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-//                        loadingTipView.showNetError();
+                        loadingTipView.showNetError();
 //                        loadingTipView.showNetError("");
 
 //                        loadingTipView.showEmpty("");
 
 //                        loadingTipView.showError("");
 
-                        loadingTipView.showContent(contentView);
+//                        loadingTipView.showContent(contentView);
                     }
                 });
             }
-        }, 10 * 1000);
+        }, 5 * 1000);
     }
 }

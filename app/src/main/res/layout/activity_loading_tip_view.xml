@@ -23,8 +23,7 @@
         <com.sinothk.android.widgets.LoadingTipView
             android:id="@+id/loadingTipView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/red" />
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 </LinearLayout>

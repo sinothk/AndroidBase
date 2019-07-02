@@ -2,9 +2,11 @@ package com.sinothk.android.utils;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -20,45 +22,6 @@ public class IntentUtil {
 
     public static IntentBuilder openActivity(Activity currActivity, Class<?> gotoActivity) {
         return new IntentBuilder(currActivity, gotoActivity);
-    }
-
-    public static void openInnerActivity(Activity currActivity, String pkg, String activity) {
-        Intent intent = new Intent();
-        ComponentName cn = new ComponentName(pkg, activity);
-        intent.setComponent(cn);
-        currActivity.startActivity(intent);
-    }
-
-    public static void openOtherApp(Activity currActivity, String pkg, String activity) {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-        ComponentName cn = new ComponentName(pkg, activity);
-        intent.setComponent(cn);
-        currActivity.startActivity(intent);
-    }
-
-    public static String openOtherApp(Activity currActivity, String pkg, Bundle bundle) {
-        PackageManager packageManager = currActivity.getPackageManager();
-
-        PackageInfo packageInfo;
-        try {
-            packageInfo = packageManager.getPackageInfo(pkg, 0);
-            if (packageInfo != null) {
-                Intent intent = packageManager.getLaunchIntentForPackage(pkg);
-                if (bundle != null) {
-                    assert intent != null;
-                    intent.putExtras(bundle);
-                }
-                currActivity.startActivity(intent);
-                return "";
-            } else {
-                return "应用未安装";
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return "应用未安装";
-        }
     }
 
     public static class IntentBuilder {
@@ -179,5 +142,51 @@ public class IntentUtil {
             mDataBundle = null;
             mIntent = null;
         }
+    }
+
+    public static void openInnerActivity(Activity currActivity, String pkg, String activity) {
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName(pkg, activity);
+        intent.setComponent(cn);
+        currActivity.startActivity(intent);
+    }
+
+    public static void openOtherApp(Activity currActivity, String pkg, String activity) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+        ComponentName cn = new ComponentName(pkg, activity);
+        intent.setComponent(cn);
+        currActivity.startActivity(intent);
+    }
+
+    public static String openOtherApp(Activity currActivity, String pkg, Bundle bundle) {
+        PackageManager packageManager = currActivity.getPackageManager();
+
+        PackageInfo packageInfo;
+        try {
+            packageInfo = packageManager.getPackageInfo(pkg, 0);
+            if (packageInfo != null) {
+                Intent intent = packageManager.getLaunchIntentForPackage(pkg);
+                if (bundle != null) {
+                    assert intent != null;
+                    intent.putExtras(bundle);
+                }
+                currActivity.startActivity(intent);
+                return "";
+            } else {
+                return "应用未安装";
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "应用未安装";
+        }
+    }
+
+    public static void downLoadByBrowser(Context mContext, String url) {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.setData(Uri.parse(url));
+        mContext.startActivity(intent);
     }
 }

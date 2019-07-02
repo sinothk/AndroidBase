@@ -1,13 +1,12 @@
 package com.sinothk.android.base.demo;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sinothk.android.utils.ToastUtil;
 import com.sinothk.android.widgets.LoadingTipView;
 
 public class LoadingTipViewDemoActivity extends AppCompatActivity {

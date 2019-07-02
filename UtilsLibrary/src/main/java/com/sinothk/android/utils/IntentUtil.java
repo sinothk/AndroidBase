@@ -1,7 +1,10 @@
 package com.sinothk.android.utils;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -17,6 +20,45 @@ public class IntentUtil {
 
     public static IntentBuilder openActivity(Activity currActivity, Class<?> gotoActivity) {
         return new IntentBuilder(currActivity, gotoActivity);
+    }
+
+    public static void openInnerActivity(Activity currActivity, String pkg, String activity) {
+        Intent intent = new Intent();
+        ComponentName cn = new ComponentName(pkg, activity);
+        intent.setComponent(cn);
+        currActivity.startActivity(intent);
+    }
+
+    public static void openOtherApp(Activity currActivity, String pkg, String activity) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+        ComponentName cn = new ComponentName(pkg, activity);
+        intent.setComponent(cn);
+        currActivity.startActivity(intent);
+    }
+
+    public static String openOtherApp(Activity currActivity, String pkg, Bundle bundle) {
+        PackageManager packageManager = currActivity.getPackageManager();
+
+        PackageInfo packageInfo;
+        try {
+            packageInfo = packageManager.getPackageInfo(pkg, 0);
+            if (packageInfo != null) {
+                Intent intent = packageManager.getLaunchIntentForPackage(pkg);
+                if (bundle != null) {
+                    assert intent != null;
+                    intent.putExtras(bundle);
+                }
+                currActivity.startActivity(intent);
+                return "";
+            } else {
+                return "应用未安装";
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "应用未安装";
+        }
     }
 
     public static class IntentBuilder {
@@ -101,9 +143,9 @@ public class IntentUtil {
                 this.currActivity.startActivityForResult(mIntent, mRequestCode);
             }
 
-            if ((this.mEnterAnimRes != 0) && (this.mExitAnimRes != 0)){
+            if ((this.mEnterAnimRes != 0) && (this.mExitAnimRes != 0)) {
                 currActivity.overridePendingTransition(this.mEnterAnimRes, this.mExitAnimRes);
-            }else{
+            } else {
 //                currActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 //                currActivity.overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
@@ -129,7 +171,7 @@ public class IntentUtil {
                 mIntent.setFlags(mFlags);
 
             if (mRequestCode == -999) {
-               fragment.startActivity(mIntent);
+                fragment.startActivity(mIntent);
             } else {
                 fragment.startActivityForResult(mIntent, mRequestCode);
             }
